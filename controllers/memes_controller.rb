@@ -10,11 +10,13 @@ class MemesController < Sinatra::Base
 	# Index
 	get '/memes' do
 		@index = "Index"
+		@memes = Meme.all
 		erb :"memes/index"
 	end
 
 	# New
 	get '/memes/new' do
+		@new = "New"
 		erb :"memes/new"
 	end
 
@@ -24,11 +26,15 @@ class MemesController < Sinatra::Base
 
 	# Show
 	get '/memes/:id' do
+		@show = "Show"
+		id = params[:id].to_i
+		@meme = Meme.find(id)
 		erb :"memes/show"
 	end
 
 	# Edit
 	get '/memes/:id/edit' do
+		@edit = "Edit"
 		erb :"memes/edit"
 	end
 

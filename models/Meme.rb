@@ -8,8 +8,8 @@ class Meme
 
 	# Index
 	def self.all 
-		conn = open_connection
-		sql = 'SELECT * FROM memes'
+		conn = self.open_connection
+		sql = "SELECT * FROM memes"
 		results = conn.exec(sql)
 		memes = results.map do |record|
 			self.hydrate(record)
@@ -29,8 +29,8 @@ class Meme
 
 	# Show
 	def self.find id
-		conn = open_connection
-		sql = 'SELECT * FROM memes WHERE id = #{id}'
+		conn = self.open_connection
+		sql = "SELECT * FROM memes WHERE id = '#{id}'"
 		meme = conn.exec(sql)
 		hydrated_meme = self.hydrate meme[0]
 		hydrated_meme

@@ -1,1 +1,10 @@
 <h1><%= @index %></h1>
+
+<% @memes.each do |meme| %>
+
+	<h2><%= meme.title %></h2>
+	<p><%= meme.description %></p>
+	<a href="/memes/<%= meme.id %>">Click here to go to page!</a>
+	<a href="/memes/<%= meme.id %>/edit">Click here to edit the page!</a>
+
+<% end %>
