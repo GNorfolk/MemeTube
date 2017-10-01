@@ -22,6 +22,13 @@ class MemesController < Sinatra::Base
 
 	# Create
 	post '/memes' do
+		new_meme = Meme.new
+		new_meme.title = params[:title]
+		new_meme.description = params[:description]
+		new_meme.url = params[:url]
+		new_meme.genre = params[:genre]
+		new_meme.save
+		redirect '/memes'
 	end
 
 	# Show
@@ -35,11 +42,21 @@ class MemesController < Sinatra::Base
 	# Edit
 	get '/memes/:id/edit' do
 		@edit = "Edit"
+		id = params[:id].to_i
+		@meme = Meme.find(id)
 		erb :"memes/edit"
 	end
 
 	# Update
-	put '/memes/:id' do 
+	post '/memes/:id' do 
+		id = params[:id].to_i
+		up_meme = Meme.find(id)
+		up_meme.title = params[:title]
+		up_meme.description = params[:description]
+		up_meme.url = params[:url]
+		up_meme.genre = params[:genre]
+		up_meme.save
+		redirect "/memes/#{id}"
 	end
 
 	# Destroy
