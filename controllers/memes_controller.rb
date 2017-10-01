@@ -61,6 +61,9 @@ class MemesController < Sinatra::Base
 
 	# Destroy
 	delete '/memes/:id' do
+		id = params[:id]
+		Meme.destroy(id)
+		redirect "/memes"
 	end
 
 end

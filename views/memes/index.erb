@@ -7,6 +7,9 @@
 	<a href="/memes/<%= meme.id %>">Click here to go to page!</a>
 	<a href="/memes/<%= meme.id %>/edit">Click here to edit the page!</a>
 
-	
+	<form action="/memes/<%= meme.id %>" method="POST">
+		<input type="hidden" name="_method" value="DELETE">
+		<input type="submit" name="Delete" value="Delete meme!">
+	</form>
 
 <% end %>
