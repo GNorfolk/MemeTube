@@ -28,10 +28,29 @@ class Meme
 	end
 
 	# Show
+	def self.find id
+		conn = open_connection
+		sql = 'SELECT * FROM memes WHERE id = #{id}'
+		meme = conn.exec(sql)
+		hydrated_meme = self.hydrate meme[0]
+		hydrated_meme
 
-	# Create
-	# Update
+	# Create && Update
+	def save 
+		conn = Meme.open_connection
+		if (!self.id)
+			sql = "INSERT INTO memes (title, description, url, genre) VALUES ('#{self.title}', '#{self.description}', '#{self.url}', '#{self.genre}');"
+		elsif 
+			sql = "UPDATE memes SET title = '#{self.title}', description = '#{self.description}', url = '#{self.url}', genre = '#{self.genre}' WHERE id = '#{self.id}';"
+		end
+		conn.exec(sql)
+	end
 
 	# Destroy
+	def self.destroy id
+		conn = self.open_connection
+		sql = "DELETE FROM memes WHERE id = #{id}"
+		conn.exec(sql)
+	end
 
 end
