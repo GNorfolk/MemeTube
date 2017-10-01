@@ -34,6 +34,7 @@ class Meme
 		meme = conn.exec(sql)
 		hydrated_meme = self.hydrate meme[0]
 		hydrated_meme
+	end
 
 	# Create && Update
 	def save 

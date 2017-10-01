@@ -9,6 +9,7 @@ class MemesController < Sinatra::Base
 
 	# Index
 	get '/memes' do
+		@index = "Index"
 		erb :"memes/index"
 	end
 
