@@ -16,7 +16,7 @@ class MemesController < Sinatra::Base
 
 	# New
 	get '/memes/new' do
-		@new = "New"
+		@new = "Create a meme!"
 		erb :"memes/new"
 	end
 
@@ -41,7 +41,7 @@ class MemesController < Sinatra::Base
 
 	# Edit
 	get '/memes/:id/edit' do
-		@edit = "Edit"
+		@edit = "Edit your meme!"
 		id = params[:id].to_i
 		@meme = Meme.find(id)
 		erb :"memes/edit"

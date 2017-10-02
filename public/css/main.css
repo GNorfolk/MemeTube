@@ -1,0 +1,35 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	background-color: lightblue;
+	margin: 12px;
+}
+
+h1 {
+	font-size: 64px;
+}
+
+iframe {
+
+}
+
+p {
+	width: 1120px;
+	margin: 12px auto;
+}
+
+a {
+
+}
+
+.index-item form {
+	display: inline-block;
+}
+
+.index-item input {
+	display: inline-block;
+	background-color: white;
+}
+
