@@ -24,11 +24,11 @@ a {
 
 }
 
-.index-item form {
+.delete form {
 	display: inline-block;
 }
 
-.index-item input {
+.delete input {
 	display: inline-block;
 	background-color: white;
 }
